@@ -1,0 +1,6 @@
+{
+  "name": "TAUSMan",
+  "description": "A chatbot",
+  "image": "heroku/java",
+  "addons": [ "heroku-postgresql" ]
+}

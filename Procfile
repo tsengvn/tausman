@@ -1,0 +1,1 @@
+web:    java -jar build/libs/TausMan-1.0.jar
