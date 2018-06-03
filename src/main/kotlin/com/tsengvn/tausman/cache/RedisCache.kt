@@ -12,7 +12,7 @@ class RedisCache : Cache {
         get() = jedisPool?.resource
 
     init {
-        jedisPool = JedisPool(toJedisPoolConfig(), URI.create(configOf("REDIS_URL")))
+        jedisPool = JedisPool(toJedisPoolConfig(), URI.create(configOf("REDIS_URL")), 600)
     }
 
     override fun set(id: String, value: String) {
@@ -24,7 +24,7 @@ class RedisCache : Cache {
     private fun toJedisPoolConfig(): JedisPoolConfig {
         return JedisPoolConfig().apply {
             maxWaitMillis = 500
-            maxTotal = 30
+            maxTotal = 10
             maxIdle = 5
             minIdle = 1
             testOnBorrow = true
